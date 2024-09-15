@@ -67,11 +67,13 @@ export default function App() {
     }, []);
 
     return (
-        <Layout> 
-        { supabase ? 
-            <Body supabase={supabase}/> 
-            : <h1>No Supabase connection</h1>
-        }
-        </Layout>
+        <>
+            <Layout> 
+            { supabase ? 
+                <Body supabase={supabase}/> 
+                : <h1>No Supabase connection</h1>
+            }
+            </Layout>
+        </>
     );
 }

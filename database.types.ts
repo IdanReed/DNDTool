@@ -9,39 +9,39 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      Entitys: {
+      Items: {
         Row: {
-          created_at: string
           id: number
           name: string | null
         }
         Insert: {
-          created_at?: string
           id?: number
           name?: string | null
         }
         Update: {
-          created_at?: string
           id?: number
           name?: string | null
         }
         Relationships: []
       }
-      Items: {
+      Map: {
         Row: {
-          created_at: string
           id: number
-          name: string | null
+          type: Database["public"]["Enums"]["Tile"]
+          x: number
+          y: number
         }
         Insert: {
-          created_at?: string
           id?: number
-          name?: string | null
+          type: Database["public"]["Enums"]["Tile"]
+          x: number
+          y: number
         }
         Update: {
-          created_at?: string
           id?: number
-          name?: string | null
+          type?: Database["public"]["Enums"]["Tile"]
+          x?: number
+          y?: number
         }
         Relationships: []
       }
@@ -53,7 +53,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      Tile: "Air" | "Wall"
     }
     CompositeTypes: {
       [_ in never]: never

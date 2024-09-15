@@ -2,8 +2,8 @@ import { useCallback, useState, useEffect, FC } from "react";
 import { createClient, SupabaseClient } from "@supabase/supabase-js"
 import { Database } from "../database.types"
 
-type Tables = keyof Database["public"]["Tables"];
-type Row<T extends Tables> = Database["public"]["Tables"][T]["Row"];
+export type Tables = keyof Database["public"]["Tables"];
+export type Row<T extends Tables> = Database["public"]["Tables"][T]["Row"];
 
 export const useTrackableObject = <T extends Tables>(
     supabase: SupabaseClient<Database, "public">,
@@ -17,7 +17,7 @@ export const useTrackableObject = <T extends Tables>(
                 .from(table)
                 .select();
             
-            const sorted = (data as Row<T>[]).sort((x, y) => {
+            const sorted = (data as unknown as Row<T>[]).sort((x, y) => {
                 return x.id - y.id;
             });
 

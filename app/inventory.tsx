@@ -18,7 +18,7 @@ import {
 
 export interface IInventory
 {
-    supabase: SupabaseClient<Database, "public", any>;
+    supabase: SupabaseClient<Database, "public">;
 };
 
 export const Inventory: React.FC<IInventory> = (props) => {
@@ -50,9 +50,6 @@ export const Inventory: React.FC<IInventory> = (props) => {
                     </TableBody>
                 </Table>
             </div>
-            
         </div>
-
-
     );
 };
